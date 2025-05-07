@@ -21,3 +21,19 @@ function processValue(value: string | number): number {
     return value * 2;
   }
 }
+/* TODO: remove todo: Problem 6 */
+interface Product {
+  name: string;
+  price: number;
+}
+function getMostExpensiveProduct(products: Product[]): Product | null {
+  if (products.length == 0) return null;
+  
+  let expensiveProduct: Product = products[0];
+  for (const product of products) {
+    if (product.price > expensiveProduct?.price) {
+      expensiveProduct = product;
+    }
+  }
+  return expensiveProduct;
+}
