@@ -37,3 +37,17 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
   }
   return expensiveProduct;
 }
+/* TODO: remove todo: Problem 7 */
+enum Day {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+function getDayType(day: Day): string {
+  return day === Day.Sunday ? "Weekend" : "Weekday";
+}
