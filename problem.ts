@@ -13,3 +13,11 @@ function filterByRating(
   let filtered = items.filter((items) => items.rating >= 4);
   return filtered;
 }
+/* TODO: remove todo: Problem 5 */
+function processValue(value: string | number): number {
+  if (typeof value === "string") {
+    return value.length;
+  } else {
+    return value * 2;
+  }
+}
