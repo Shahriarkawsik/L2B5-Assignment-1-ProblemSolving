@@ -28,7 +28,7 @@ interface Product {
 }
 function getMostExpensiveProduct(products: Product[]): Product | null {
   if (products.length == 0) return null;
-  
+
   let expensiveProduct: Product = products[0];
   for (const product of products) {
     if (product.price > expensiveProduct?.price) {
@@ -49,5 +49,5 @@ enum Day {
 }
 
 function getDayType(day: Day): string {
-  return day === Day.Sunday ? "Weekend" : "Weekday";
+  return day === Day.Saturday || day === Day.Sunday ? "Weekend" : "Weekday";
 }
