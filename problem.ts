@@ -51,3 +51,16 @@ enum Day {
 function getDayType(day: Day): string {
   return day === Day.Saturday || day === Day.Sunday ? "Weekend" : "Weekday";
 }
+
+/* TODO: remove todo: Problem 8 */
+async function squareAsync(n: number): Promise<number> {
+  return new Promise((resolve, reject) => {
+    if (n < 0) {
+      reject(new Error("Negative number not allowed"));
+    } else {
+      setTimeout(() => {
+        resolve(n * n);
+      }, 1000);
+    }
+  });
+}
