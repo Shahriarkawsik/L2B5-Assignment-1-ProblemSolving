@@ -4,8 +4,7 @@
 
 ### Primitive Type
 
-We can use define a type alias for a primitive type
-
+We can use define a type alias for a primitive type.
 ```ts
 type UserName = string;
 type UserId = number;
@@ -29,8 +28,8 @@ const userDetails: UserDetails = {
 
 > ### `Union`, `Intersection` and `Tuple` type
 >
-> **Union :**
-> This works when using a `type alias`, but it does not work with an `interface`.
+**Union :**
+This works when using a `type alias`, but it does not work with an `interface`.
 
 ```ts
 type Teacher= {
