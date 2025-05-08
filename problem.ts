@@ -42,7 +42,6 @@ class Car extends Vehicle {
   }
 }
 
-/* TODO: remove todo: Problem 5 */
 function processValue(value: string | number): number {
   if (typeof value === "string") {
     return value.length;
@@ -50,7 +49,7 @@ function processValue(value: string | number): number {
     return value * 2;
   }
 }
-/* TODO: remove todo: Problem 6 */
+
 interface Product {
   name: string;
   price: number;
@@ -66,7 +65,7 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
   }
   return expensiveProduct;
 }
-/* TODO: remove todo: Problem 7 */
+
 enum Day {
   Monday,
   Tuesday,
@@ -81,7 +80,6 @@ function getDayType(day: Day): string {
   return day === Day.Saturday || day === Day.Sunday ? "Weekend" : "Weekday";
 }
 
-/* TODO: remove todo: Problem 8 */
 async function squareAsync(n: number): Promise<number> {
   return new Promise((resolve, reject) => {
     if (n < 0) {
