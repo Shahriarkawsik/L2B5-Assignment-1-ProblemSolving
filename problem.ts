@@ -13,6 +13,12 @@ function filterByRating(
   let filtered = items.filter((items) => items.rating >= 4);
   return filtered;
 }
+
+function concatenateArrays<T>(...arrays: T[][]): T[] {
+  const result = arrays.reduce((acc, curr) => [...acc, ...curr], []);
+  return result;
+}
+
 /* TODO: remove todo: Problem 5 */
 function processValue(value: string | number): number {
   if (typeof value === "string") {
