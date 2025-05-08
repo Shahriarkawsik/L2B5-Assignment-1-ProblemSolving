@@ -1,6 +1,6 @@
-# L2B5-Assignment-1-ProblemSolving
+<!-- # L2B5-Assignment-1-ProblemSolving -->
 
-> ## **1. What are some differences between `interfaces` and `types` in TypeScript?**
+> # **1. What are some differences between `interfaces` and `types` in TypeScript?**
 
 ### Primitive Type
 
@@ -50,9 +50,9 @@ type TeacherTotalCredit = Teacher | TotalCredit; ✔
 
 > **Intersection :** Intersection operator (&) works with both `type` and `interface`.
 
-**Example**
+**Example :**
 
-**Type Alias**
+> **Type Alias**
 
 ```ts
 type Teacher = {
@@ -66,7 +66,7 @@ type TotalCredit = {
 type TeacherTotalCredit = Teacher & TotalCredit;
 ```
 
-**Interface**
+> **Interface**
 
 ```ts
 interface Teacher {
@@ -80,7 +80,7 @@ interface TotalCredit {
 interface TeacherTotalCredit extends Teacher, TotalCredit {}
 ```
 
-**Merge**
+> **Merge**
 
 ```ts
 interface Teacher {
@@ -105,18 +105,53 @@ const coordinates: Point = [10, 20];
 ```
 
 ---
-
 ## TypeScript: `type` vs `interface`
 
-| Feature                      | `type`                                                             | `interface`                                                        |
-| ---------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------- |
-| Primary Use                  | Used to define new types (primitives, unions, tuples, etc.)        | Used to define the shape of objects                                |
-| Extension                    | Can extend via `extends` or with intersections (`&`)               | Can extend only via `extends`                                      |
-| Declaration Merging          | Not supported                                                      | Supported — interfaces with the same name are automatically merged |
-| Union & Intersection Support | Supports union (`                                                  | `) and intersection (`&`) types                                    | Does not support union types directly |
-| Use with Complex Types       | Great for defining complex types like unions, tuples, mapped types | Best suited for object-like data structures                        |
-| Implements Keyword           | Classes can implement types                                        | Classes can implement interfaces                                   |
-| Readability/Intuition        | Sometimes less intuitive for object shapes                         | More intuitive and readable for defining object contracts          |
+| Feature                      | `type`                                                                 | `interface`                                                        |
+|------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
+| Primary Use                  | Used to define new types (primitives, unions, tuples, etc.)            | Used to define the shape of objects                                 |
+| Extension                    | Can extend via `extends` or with intersections (`&`)                   | Can extend only via `extends`                                       |
+| Declaration Merging          | Not supported                                                          | Supported — interfaces with the same name are automatically merged  |
+| Union & Intersection Support | Supports union (`|`) and intersection (`&`) types                      | Does not support union types directly                               |
+| Use with Complex Types       | Great for defining complex types like unions, tuples, mapped types     | Best suited for object-like data structures                         |
+| Implements Keyword           | Classes can implement types                                            | Classes can implement interfaces                                    |
+| Readability/Intuition        | Sometimes less intuitive for object shapes                             | More intuitive and readable for defining object contracts           |
 
 > 🔹 Use `interface` when defining object shapes, especially for public APIs or class contracts.  
 > 🔸 Use `type` when you need unions, intersections, or more complex type manipulations.
+
+---
+
+> # **2. What is the use of the `keyof` keyword in TypeScript? Provide an example.**
+
+#### The `keyof` keyword in TypeScript is used to create `a union type` of all the `property names (keys)` of a given object type.
+
+---
+
+### Why use `keyof` ?
+
+- To restrict input to only the valid keys of a type.
+- To ensure type safety when accessing or manipulating object properties dynamically.
+- Often used in generic utility functions.
+
+**Example**
+
+```ts
+type Person = {
+  name: string;
+  age: number;
+  email: string;
+};
+type PersonKeys = keyof Person; // "name" | "age" | "email"
+function getProperty(obj: Person, key: PersonKeys) {
+  return obj[key];
+}
+
+const person: Person = {
+  name: "Shahriar",
+  age: 25,
+  email: "shahriar@example.com",
+};
+const name = getProperty(person, "name"); // OK
+const email = getProperty(person, "email"); // OK
+```
