@@ -126,8 +126,6 @@ const coordinates: Point = [10, 20];
 
 #### The `keyof` keyword in TypeScript is used to create `a union type` of all the `property names (keys)` of a given object type.
 
----
-
 ### Why use `keyof` ?
 
 - To restrict input to only the valid keys of a type.
