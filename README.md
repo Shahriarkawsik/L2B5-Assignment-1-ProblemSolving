@@ -1,10 +1,11 @@
 # L2B5-Assignment-1-ProblemSolving
 
-> ## **What are some differences between `interfaces` and `types` in TypeScript?**
+> ## **1. What are some differences between `interfaces` and `types` in TypeScript?**
 
 ### Primitive Type
 
 We can use define a type alias for a primitive type.
+
 ```ts
 type UserName = string;
 type UserId = number;
@@ -28,8 +29,8 @@ const userDetails: UserDetails = {
 
 > ### `Union`, `Intersection` and `Tuple` type
 >
-**Union :**
-This works when using a `type alias`, but it does not work with an `interface`.
+> **Union :**
+> This works when using a `type alias`, but it does not work with an `interface`.
 
 ```ts
 type Teacher= {
@@ -42,7 +43,7 @@ type TotalCredit ={
 }
 
 type TeacherTotalCredit = Teacher | TotalCredit; ✔
-~~ interface TeacherTotalCredit = Teacher | TotalCredit; ~~ ❌
+~~interface TeacherTotalCredit = Teacher | TotalCredit;~~ ❌
 ```
 
 ---
@@ -102,18 +103,20 @@ interface Teacher {
 type Point = [number, number];
 const coordinates: Point = [10, 20];
 ```
+
 ---
+
 ## TypeScript: `type` vs `interface`
 
-| Feature                      | `type`                                                                 | `interface`                                                        |
-|------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
-| Primary Use                  | Used to define new types (primitives, unions, tuples, etc.)            | Used to define the shape of objects                                 |
-| Extension                    | Can extend via `extends` or with intersections (`&`)                   | Can extend only via `extends`                                       |
-| Declaration Merging          | Not supported                                                          | Supported — interfaces with the same name are automatically merged  |
-| Union & Intersection Support | Supports union (`|`) and intersection (`&`) types                      | Does not support union types directly                               |
-| Use with Complex Types       | Great for defining complex types like unions, tuples, mapped types     | Best suited for object-like data structures                         |
-| Implements Keyword           | Classes can implement types                                            | Classes can implement interfaces                                    |
-| Readability/Intuition        | Sometimes less intuitive for object shapes                             | More intuitive and readable for defining object contracts           |
+| Feature                      | `type`                                                             | `interface`                                                        |
+| ---------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------- |
+| Primary Use                  | Used to define new types (primitives, unions, tuples, etc.)        | Used to define the shape of objects                                |
+| Extension                    | Can extend via `extends` or with intersections (`&`)               | Can extend only via `extends`                                      |
+| Declaration Merging          | Not supported                                                      | Supported — interfaces with the same name are automatically merged |
+| Union & Intersection Support | Supports union (`                                                  | `) and intersection (`&`) types                                    | Does not support union types directly |
+| Use with Complex Types       | Great for defining complex types like unions, tuples, mapped types | Best suited for object-like data structures                        |
+| Implements Keyword           | Classes can implement types                                        | Classes can implement interfaces                                   |
+| Readability/Intuition        | Sometimes less intuitive for object shapes                         | More intuitive and readable for defining object contracts          |
 
 > 🔹 Use `interface` when defining object shapes, especially for public APIs or class contracts.  
 > 🔸 Use `type` when you need unions, intersections, or more complex type manipulations.
